@@ -1,0 +1,35 @@
+ <?php
+//We get the CPU Idle from top and reverse it
+ $data = shell_exec("top -b -n 2|grep 'Cpu(s)'");
+ $data = explode(",",$data);
+ $data = explode(" ",$data[10]);
+ $data = 100 - $data[1];
+
+ if($data <= 50){
+ 	$label_color = "success";
+ }
+
+ if($data > 50 && $data < 80){
+ 	$label_color = "warning";
+ }
+
+ if($data >= 80){
+ 	$label_color = "danger";
+ }
+
+//AJAX DATA
+ if(isset($_["data_id"])){
+ 	$data_json["data_id"] = $_["data_id"];
+ 	$data_json["data"] = $data;
+ 	$data_json["label"] = $label_color;
+ 	echo json_encode($data_json);
+ }
+
+ if(isset($_["voice"])){
+ 	//$text = t("Cpu Usage ";
+ 	//$tts = $text.$data.t(" percent");
+ 	$text = t("Utilisation du processeur à ");
+ 	$tts = $text.$data.t(" pourcent");
+ 	Functions::launch_background("/usr/local/bin/tts -l ".$_SESSION["LANGUAGE"]." ".$tts);
+ }
+ ?>
