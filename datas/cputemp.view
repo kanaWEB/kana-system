@@ -10,8 +10,7 @@ $blocks[$nb]["row"][$tr]["data"] = [
 "ajax" => "ajax_refresh",
 "ajax_link" => "system/cputemp",
 "type" => "text/h4",
-"label" => "label",
+"label" => "label label-info",
 "text" => "...",
-"label" => ""
 ];
 ?>

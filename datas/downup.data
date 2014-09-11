@@ -6,18 +6,20 @@ $ifconfig =  explode(" ", trim($ifconfig));
 $up = round($ifconfig[4] / 1024 / 1024,2);
 $down = round($ifconfig[0] / 1024 / 1024,2);
 
-$label_color = "info";
+//$label_color = "info";
 
 $datas[] =  [
 	'name' => "upload",
-	'text' => $up,
-	'label' => "info"
+	'value' => "kb/s",
+	'data' => $up,
+	'label' => "danger"
 ];
 
 $datas[] =  [
 	'name' => "download",
-	'text' => $down,
-	'label' => "info"
+	'value' => "kb/s",
+	'data' => $down,
+	'label' => "success"
 ];
 
 if(isset($_["data_id"])){

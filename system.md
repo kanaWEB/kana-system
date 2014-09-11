@@ -3,7 +3,6 @@ Hardware  |glyphicon-tasks
 system    |hostname
 system    |cputemp
 system	  |overclock
-system	  |cputemp
 
 Disks     |glyphicon-hdd
 ----------|-------------
@@ -13,3 +12,4 @@ Network   |glyphicon-signal
 ----------|----------------
 system    |lanaddress
 system    |wanaddress
+system    |downup

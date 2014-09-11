@@ -1,5 +1,21 @@
 <?php
-var_dump($datas);
+$blocks[$nb]["row"][$tr]["name"] = [
+"type" => "text/h4",
+"text" => t("Bandwith"),
+"icon" => "glyphicon-sort"
+];
+
+$blocks[$nb]["row"][$tr]["data"] = [
+"id" => "downup",
+"ajax" => "ajax_refresh",
+"ajax_link" => "system/downup",
+"type" => "text/h4_2label",
+"label" => "label label-danger",
+"label2" => "label label-success",
+"icon1" => "glyphicon-chevron-up",
+"icon2" => "glyphicon-chevron-down",
+"text" => "...",
+];
 
 
 ?>
