@@ -1,7 +1,7 @@
 <?php
 $data = round(file_get_contents("/sys/class/thermal/thermal_zone0/temp") / 1000,1);
 
-    //OK
+//OK
 if ($data < 55){
   $label_color = "success";
 }

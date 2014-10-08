@@ -1,4 +1,9 @@
 <?php
+#@# name:Disks | exemple:NAME 123 Mo/7.01 Go
+unset($data);
+
+$lang = add_language(USER_VIEWS."system");
+
 exec('df -T | grep -vE "tmpfs|rootfs|Filesystem"', $drivesarray);
 for ($i=0; $i<count($drivesarray); $i++) {
 	$drivesarray[$i] = preg_replace('!\s+!', ' ', $drivesarray[$i]);
@@ -8,7 +13,7 @@ for ($i=0; $i<count($drivesarray); $i++) {
 	//We remove /boot as it isn't revelant
 	if($mounted != "/boot"){
 		if($mounted == "/"){
-			$mounted = "SD Card"; //We rename the root directory to SD Card
+			$mounted = t("SD Card"); //We rename the root directory to SD Card
 		}
 		else
 		{
@@ -31,10 +36,10 @@ for ($i=0; $i<count($drivesarray); $i++) {
 			$label_color = "danger";
 		}
 
-		$data = Functions::convertFileSize($available * 1000)." / ".Functions::convertFileSize($size * 1000);
-		$datas[] = array(
+		$data_size = Functions::convertFileSize($available * 1000)." / ".Functions::convertFileSize($size * 1000);
+		$data[] = array(
 			'name' => $mounted,
-			'text' => $data,
+			'text' => $data_size,
 			'label' => $label_color,
 			'bar' => $percent 
 			); 
@@ -49,10 +54,10 @@ for ($i = 0; $i < count($disksArray); $i++) {
 
 	if(empty($output["MOUNTPOINT"]) && $output["TYPE"]== "part"){
 		$j++;
-		$data = $output["SIZE"];
-		$datas[] = [
+		$data_size = $output["SIZE"];
+		$data[] = [
 		"name" => "(unmounted) /dev/".$output["NAME"],
-		"text" => $data,
+		"text" => $data_size,
 		"bar" => 0,
 		"label" => $label_color
 		];
@@ -60,10 +65,17 @@ for ($i = 0; $i < count($disksArray); $i++) {
 }
 
 if(isset($_["data_id"])){
-	$datas["data_id"] = $_["data_id"];
-	$json = json_encode($datas);
+	$data["data_id"] = $_["data_id"];
+	$json = json_encode($data);
 	echo $json;
 }
 
+if(isset($data_link_json)){
+	$data_string = "";
+	foreach($data as $data_value){
+		$data_string .= $data_value["name"].": ".$data_value["text"]."\n";
+	}
+	$data = $data_string;
+}
 
 ?>
