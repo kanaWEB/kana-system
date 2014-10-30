@@ -1,5 +1,5 @@
 <?php
-#@# name:Disks | exemple:NAME 123 Mo/7.01 Go
+#@# name:Disks | example:NAME 123 Mo/7.01 Go
 unset($data);
 
 $lang = add_language(USER_VIEWS."system");

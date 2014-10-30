@@ -34,14 +34,14 @@ else
 
 //$label_color = "info";
 
-$datas[] =  [
+$data[] =  [
 'name' => "upload",
 'value' => $value_tx,
 'data' => $up,
 'label' => "danger"
 ];
 
-$datas[] =  [
+$data[] =  [
 'name' => "download",
 'value' => $value_rx,
 'data' => $down,
@@ -49,8 +49,8 @@ $datas[] =  [
 ];
 
 if(isset($_["data_id"])){
-	$datas["data_id"] = $_["data_id"];
-	$json = json_encode($datas);
+	$data["data_id"] = $_["data_id"];
+	$json = json_encode($data);
 	echo $json;
 }
 
