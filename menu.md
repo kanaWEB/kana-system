@@ -1,3 +1,3 @@
-icon               |text
--------------------|--------
-glyphicon-info-sign|System
+icon                         |text
+-----------------------------|--------
+glyphicon glyphicon-info-sign|System

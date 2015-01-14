@@ -3,7 +3,7 @@
  if(filter_var($ip, FILTER_VALIDATE_IP) === false)
  	$ip = Functions::loadUrl('http://ipecho.net/plain');
  if(filter_var($ip, FILTER_VALIDATE_IP) === false)
- 	return 'Unavailable';
+ 	$ip = t('Not connected');
 $data = $ip;
 
 //AJAX DATA

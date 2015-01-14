@@ -1,4 +1,5 @@
- <?php
+<?php
+#@# name:CPU load | example: 50
 //We get the CPU Idle from top and reverse it
  $data = shell_exec("top -b -n 2|grep 'Cpu(s)'");
  $data = explode(",",$data);
@@ -25,11 +26,4 @@
  	echo json_encode($data_json);
  }
 
- if(isset($_["voice"])){
- 	//$text = t("Cpu Usage ";
- 	//$tts = $text.$data.t(" percent");
- 	$text = t("Utilisation du processeur à ");
- 	$tts = $text.$data.t(" pourcent");
- 	Functions::launch_background("/usr/local/bin/tts -l ".$_SESSION["LANGUAGE"]." ".$tts);
- }
- ?>
+?>

@@ -1,19 +1,18 @@
 <?php
-$tr = 0;
+
 include("disks.data");
 foreach($data as $data_value){
-$blocks[$nb]["row"][$tr]["name"] = [
-"type" => "text/h4",
-"text" => $data_value["name"],
-"label" => $data_value["label"]
-];
+	$blocks[$nb]["row"][$tr]["name"] = [
+	"type" => "text/h4",
+	"text" => $data_value["name"],
+	"label" => $data_value["label"]
+	];
 
-$blocks[$nb]["row"][$tr]["data"] = [
-"type" => "progressbars/text",
-"text" => $data_value["text"],
-"bar" => $data_value["bar"],
-"label" => $data_value["label"]
-];
-$tr++;
+	$blocks[$nb]["row"][$tr]["data"] = [
+	"type" => "progressbars/text",
+	"text" => $data_value["text"],
+	"bar" => $data_value["bar"],
+	"label" => $data_value["label"]
+	];
 }
 ?>

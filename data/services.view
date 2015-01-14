@@ -1,0 +1,17 @@
+<?php
+include("services.data");
+for ($i=0; $i < count($data);$i++){
+
+	$blocks[$nb]["row"][$tr]["name"] = [
+	"type" => "text/h4",
+	"text" => $data[$i]["name"]
+	];
+
+	$blocks[$nb]["row"][$tr]["data"] = [
+	"type" => "text/h4",
+	"text" => $data[$i]["description"],
+	];
+
+	$tr++;
+}
+?>

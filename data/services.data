@@ -1,0 +1,49 @@
+ <?php
+ $hostname = gethostname();
+ $processes = [
+ 	"avahi-daemon",
+ 	"smbd",
+ 	"sshd",
+ 	"lighttpd",
+ 	"lirc"
+ ];
+
+ $name = [
+ 	"Avahi",
+ 	"Samba",
+ 	"<a href='http://www.raspberrypi.org/documentation/remote-access/ssh/'>SSH</a>",
+ 	"<a href='http://en.wikipedia.org/wiki/Lighttpd'>Lighttpd</a>",
+ 	"LIRC"
+ ];
+
+ $description = [
+ 	"<a href='http://".$hostname.".local'>".$hostname.".local</a> (MAC OSX Bonjour Protocol)",
+ 	"File are shared on <a href='http://".$hostname."'>".$hostname."</a>",
+ 	"Terminal where you can type commands",
+ 	"Web server where Kana is running",
+ 	"Send/Receive Infrared Codes"
+ ];
+
+ $data = array();
+ foreach ($processes as $key => $process) {
+ 	if(Functions::is_running($process)){
+ 		array_push($data,[
+ 			"name" => $name[$key],
+ 			"description" => $description[$key]
+ 			]);
+ 	}
+ 	//else{
+ 		//array_push($services,array("name"=>$name[$key],"status"=>false));
+ 	//}
+ }
+//AJAX DATA
+ if(isset($_["data_id"])){
+ 	$data_json["data_id"] = $_["data_id"];
+ 	$data_json["data"] = $data;
+ 	$data_json["label"] = "info";
+ 	echo json_encode($data_json);
+ }
+
+?>
+
+ 
