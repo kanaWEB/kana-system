@@ -1,8 +1,8 @@
 <?php
-$lang["Hardware"] = "Matériel";
-$lang["Disks"] = "Disques";
-$lang["Network"] = "Réseau";
-$lang["System"] = "Système";
-$lang["CPU load"] = "Charge CPU";
-$lang["SD Card"] = "Carte SD";
-?>
+
+$lang['Hardware'] = 'Matériel';
+$lang['Disks'] = 'Disques';
+$lang['Network'] = 'Réseau';
+$lang['System'] = 'Système';
+$lang['CPU load'] = 'Charge CPU';
+$lang['SD Card'] = 'Carte SD';
